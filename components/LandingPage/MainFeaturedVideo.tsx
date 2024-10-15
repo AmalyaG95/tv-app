@@ -38,7 +38,7 @@ const MainFeaturedVideo = ({
             <span>{MpaRating} </span>
             <span className="tracking-tighter">{formattedDuration} </span>
           </p>
-          <desc className="text-[32px] text-white">{Description}</desc>
+          <p className="text-[32px] text-white">{Description}</p>
           <div className="flex items-center gap-4">
             <button className="flex justify-center w-60 bg-white py-6 rounded-[40px]">
               <LabelWithIcon

@@ -33,7 +33,12 @@ const Navbar = ({ isOpen, setIsOpen }: TNavbarProps) => {
             href={url as string}
             onClick={handleOpenMenu}
           >
-            <LabelWithIcon {...item} showTitle={isOpen} padding="p-5" />
+            <LabelWithIcon
+              {...item}
+              showTitle={isOpen}
+              padding="p-5"
+              iconStyles="w-7 h-7"
+            />
           </Link>
         );
       })}

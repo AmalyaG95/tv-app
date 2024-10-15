@@ -21,14 +21,7 @@ const LabelWithIcon = ({
   <span
     className={`flex ${spacing} items-center relative ${padding} transition-all`}
   >
-    <Image
-      alt={name}
-      src={icon}
-      width={30}
-      height={30}
-      priority
-      className={iconStyles}
-    />
+    <Image alt={name} src={icon} priority className={iconStyles} />
     {showTitle && (
       <span className={`text-[36px] leading-[40px] text-white ${className}`}>
         {name}

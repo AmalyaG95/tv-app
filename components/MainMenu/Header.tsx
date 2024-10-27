@@ -13,11 +13,11 @@ const Header = () => {
   return (
     <header>
       <LabelWithIcon
-        className="gap-4 text-[32px]"
-        spacing="gap-5"
-        padding="pl-6"
+        className="gap-3 lg:gap-4 !text-2xl !lg:text-[32px]"
+        spacing="gap-3 lg:gap-5"
+        padding="pl-5 lg:pl-6"
         icon={profilePicture}
-        iconStyles="shadow-main rounded-full transition-shadow"
+        iconStyles="w-9 h-9 lg:w-[82px] lg:h-[82px] shadow-main rounded-full transition-shadow"
         name={name}
       />
     </header>

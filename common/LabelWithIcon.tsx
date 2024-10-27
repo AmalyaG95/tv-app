@@ -12,7 +12,7 @@ type TLabelWithIconProps = TLabelWithIcon & {
 const LabelWithIcon = ({
   icon,
   name,
-  spacing = "gap-[50px]",
+  spacing = "gap-4 lg:gap-[50px]",
   padding = "p-0",
   iconStyles = "",
   className = "",
@@ -23,7 +23,9 @@ const LabelWithIcon = ({
   >
     <Image alt={name} src={icon} priority className={iconStyles} />
     {showTitle && (
-      <span className={`text-[36px] leading-[40px] text-white ${className}`}>
+      <span
+        className={`text-2xl lg:text-[36px] leading-6 lg:leading-[40px] text-white ${className}`}
+      >
         {name}
       </span>
     )}

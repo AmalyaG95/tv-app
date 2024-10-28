@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* works unexpectedly */
 .swiper-wrapper {
-  overflow: auto;
+  /* overflow: auto; */
 }
 
 /* TODO: for Firefox */

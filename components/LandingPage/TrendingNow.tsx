@@ -18,10 +18,10 @@ const TrendingNow = ({ trendingMovies }: TrandingNowProps) => {
       : screenWith > EBreakpoints.xs
       ? 4
       : 2;
-
+  
   return (
-    <section className="px-3 xs:px-6 md:px-12 ">
-      <h2 className="text-xl xs:text-[22px] md:text-2xl lg:text-[32px] font-medium text-white">Trending Now</h2>
+    <section className="px-3 xs:px-6 lg:px-0">
+      <h2 className="text-xl xs:text-[22px] md:text-2xl lg:text-[32px] lg:leading-[38px] font-medium text-white">Trending Now</h2>
 
       <Slider
         slidesPerView={slidesPerView}

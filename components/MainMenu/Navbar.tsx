@@ -18,7 +18,7 @@ const Navbar = ({ isOpen, setIsOpen }: TNavbarProps) => {
   };
 
   return (
-    <nav className="flex flex-col ml-3 lg:ml-[34px]">
+    <nav className="flex flex-col ml-3 xs:ml-[34px]">
       {NAV_ITEMS.map((item) => {
         const { name, url } = item;
         const isActive = pathname === url;
@@ -34,10 +34,12 @@ const Navbar = ({ isOpen, setIsOpen }: TNavbarProps) => {
             onClick={handleOpenMenu}
           >
             <LabelWithIcon
+              className="text-2xl xs:text-[36px] leading-6 xs:leading-[40px] text-white"
+              spacing="gap-6 xs:gap-[50px]"
               {...item}
               showTitle={isOpen}
-              padding="p-3 lg:p-5"
-              iconStyles="w-5 lg:w-7 h-5 lg-:h-7"
+              padding="p-3 xs:p-5"
+              iconStyles="w-5 xs:w-7 h-5 lg-:h-7"
             />
           </Link>
         );

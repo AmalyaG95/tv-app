@@ -19,11 +19,11 @@ const MainFeaturedVideo = ({
 
   return (
     <section
-      className={`relative px-3 xs:px-6 md:px-12 pt-28 pb-8 lg:pt-[170px] lg:pb-[280px] w-full h-full max-h-[500px] lg:max-h-[806px] bg-cover bg-top`}
+      className={`relative px-3 xs:px-6 lg:px-3 pt-28 pb-8 lg:pt-[170px] lg:pb-[280px] w-full min-h-[60%] min-h-920:min-h-[700px] min-h-lg:min-h-[806px] lg:min-h-[806px] bg-cover bg-top`}
     >
       <DelayedVideo url={VideoUrl} coverImage={CoverImage} />
 
-      <div className="max-w-[805px] z-20 relative linear-gradient(269.72deg, rgba(0,0,0,0) -1166.37%, rgba(0,0,0,0.6) -1244.39%)">
+      <div className="max-w-[805px] h-full z-20 relative linear-gradient(269.72deg, rgba(0,0,0,0) -1166.37%, rgba(0,0,0,0.6) -1244.39%)">
         <h3 className="text-grey text-2xl font-bold">{Category}</h3>
         <article className="flex flex-col gap-2 lg:gap-5">
           <Image
@@ -39,11 +39,13 @@ const MainFeaturedVideo = ({
             <span>{MpaRating} </span>
             <span className="tracking-tighter">{formattedDuration} </span>
           </p>
-          <p className="text-xl xs:text-[22px] md:text-2xl lg:text-[32px] text-white">{Description}</p>
+          <p className="text-xl xs:text-[22px] md:text-2xl lg:text-[32px] text-white">
+            {Description}
+          </p>
           <div className="flex flex-col md:flex-row items-center gap-3 lg:gap-4 mt-8 md:mt-0">
             <button className="flex justify-center w-40 lg:w-60 bg-white py-3 lg:py-6 rounded-3xl lg:rounded-[40px]">
               <LabelWithIcon
-                className="!text-blacker font-bold !lg:text-[32px] lg:leading-none"
+                className="text-blacker font-bold !lg:text-[32px] lg:leading-none"
                 showTitle
                 iconStyles="w-3 lg:w-5 h-4 lg:h-6"
                 spacing="gap-2"

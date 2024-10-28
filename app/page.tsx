@@ -5,7 +5,7 @@ import "swiper/css";
 import { LandingPage } from "@/components";
 
 const Home = () => (
-  <main className="w-full lg:pl-32">
+  <main className="w-full h-full lg:pl-32 max-w-[1920px]">
     <LandingPage />
   </main>
 );

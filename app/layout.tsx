@@ -28,7 +28,7 @@ const RootLayout = async ({
 
   return (
     <html lang="en">
-      <body className={`${tajawal.className} bg-black`}>
+      <body className={`${tajawal.className} bg-black w-full h-screen`}>
         <ClientLayout Featured={Featured} TrendingNow={sortByDate(TrendingNow)}>
           {children}
         </ClientLayout>

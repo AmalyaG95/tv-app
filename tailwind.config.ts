@@ -11,6 +11,8 @@ const config: Config = {
     extend: {
       screens: {
         xs: "420px",
+        "min-h-920": { raw: "(min-height: 850px)" },
+        "min-h-lg": { raw: "(min-height: 1024px)" },
       },
       colors: {
         white: "#f1f1f1",

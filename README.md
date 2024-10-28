@@ -1,3 +1,7 @@
+# TV App
+
+Deployed Link: [TV App](https://tv-app-steel.vercel.app) _(right-click to open in a new tab)_
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

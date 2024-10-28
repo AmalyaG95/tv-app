@@ -39,7 +39,7 @@ const Slider = ({
   if (!slides?.length) return null;
 
   return (
-    <div className="w-full max-w-full relative">
+    <div className="w-full max-w-full relative overflow-auto">
       <Swiper
         modules={[
           ...(withFade ? [EffectFade] : []),

@@ -15,7 +15,7 @@ const Navbar = ({ isOpen, handleOpenMenu }: TNavbarProps) => {
 
   return (
     <nav
-      className={`flex flex-col ml-3 xs:ml-0`}
+      className={`flex flex-col ml-3 xs:ml-0 ${isOpen ? "" : "xs:max-w-[68px]"}`}
     >
       {NAV_ITEMS.map((item) => {
         const { name, url } = item;

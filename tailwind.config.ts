@@ -32,8 +32,10 @@ const config: Config = {
           "linear-gradient(269.72deg, rgba(0,0,0,0) -1166.37%, rgba(0,0,0,0.6) -1244.39%)",
         "menu-gradient":
           "linear-gradient(90deg, #040404 0%, #040404FA 21%, #04040400 100%)",
-        "btn-gradient":
-          "linear-gradient(159.08deg, #001671 140.46%, #2727f5 -26.13%)",
+        "btn-gradient": "linear-gradient(159.08deg, #2727f5 0%, #001671 100%)",
+      },
+      transitionProperty: {
+        'max-width': 'max-width',
       },
     },
   },

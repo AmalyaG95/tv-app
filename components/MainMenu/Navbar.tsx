@@ -22,7 +22,7 @@ const Navbar = ({ isOpen, handleOpenMenu }: TNavbarProps) => {
         const isActive = pathname === url;
 
         const isActiveStyles = `${isActive ? "bg-slate-blue shadow-main" : ""}`;
-        const isOpenStyles = ` ${isOpen ? "rounded-xl" : "rounded-full"}`;
+        const isOpenStyles = `${isOpen ? "rounded-xl" : "rounded-full"}`;
 
         return (
           <Link
@@ -32,7 +32,7 @@ const Navbar = ({ isOpen, handleOpenMenu }: TNavbarProps) => {
             onClick={handleOpenMenu}
           >
             <LabelWithIcon
-              className={`h-6 md:h-7 text-2xl xs:text-[36px] xs:leading-[40px] text-white hover:font-semibold ${
+              className={`min-w-32 xs:min-w-48 h-6 md:h-7 text-2xl xs:text-[36px] xs:leading-[40px] text-white hover:font-semibold ${
                 isActive ? "font-semibold" : ""
               }`}
               spacing="gap-6 xs:gap-[50px]"

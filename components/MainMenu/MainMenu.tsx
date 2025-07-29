@@ -13,13 +13,16 @@ import useMenuAnimation from "@/hooks/useMenuAnimation";
 const MainMenu = () => {
   const {
     isOpen,
-    isNotClosed,
     showMenu,
+    isAnimating,
     handleOpen,
     handleClose,
     getMenuAnimationClass,
   } = useMenuAnimation();
+
   useCloseElement(isOpen, handleClose, ".wrapper");
+
+  const show = isOpen || isAnimating;
 
   return (
     <>
@@ -34,17 +37,22 @@ const MainMenu = () => {
           onClick={handleOpen}
         />
       )}
+
       {showMenu && (
         <menu
-          className={`fixed left-0 top-0 overflow-y-auto h-screen pt-20 xs:pt-[65px] pb-10 pr-8 xs:pb-[65px] md:px-12 ${getMenuAnimationClass()}`}
+          className={`fixed left-0 top-0 overflow-y-auto z-50 h-screen pt-20 xs:py-[65px] pb-10 xs:px-6 ${getMenuAnimationClass()}`}
         >
-          <div className="wrapper flex flex-col gap-4 xs:gap-10 max-w-56 xs:max-w-sm h-full text-white bg-black">
-            <Header show={isOpen} />
+          <div
+            className={`wrapper transition-all duration-300 ease-out flex flex-col gap-4 xs:gap-10 max-w-56 ${
+              show ? "xs:max-w-sm" : "xs:max-w-[68px]"
+            } h-full text-white bg-black`}
+          >
+            <Header show={show} />
             <Navbar
-              isOpen={isNotClosed}
+              isOpen={show}
               handleOpenMenu={isOpen ? handleClose : handleOpen}
             />
-            {isNotClosed && (
+            {show && (
               <footer className="mt-auto pl-6 pb-8">
                 <ActionButtons />
               </footer>

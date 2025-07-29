@@ -1,68 +1,48 @@
 import { useRef, useCallback, useEffect, useState } from "react";
-import { MenuState } from "@/constants/MainMenu.constant";
 import useScreenSize, { EBreakpoints } from "@/hooks/useScreenSize";
 
 const useMenuAnimation = (duration = 500) => {
   const screenWidth = useScreenSize();
-  const [menuState, setMenuState] = useState<MenuState>(MenuState.CLOSED);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
   const timeoutRef = useRef<number | null>(null);
 
-  const isOpen = menuState === MenuState.OPEN;
-  const isNotClosed = menuState !== MenuState.CLOSED;
-  const showMenu = isNotClosed || screenWidth >= EBreakpoints.lg;
+  const showMenu = isOpen || isAnimating || screenWidth >= EBreakpoints.lg;
 
-  const setMenuStateWithAnimation = useCallback(
-    (nextState: MenuState) => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+  const handleOpen = useCallback(() => {
+    if (isOpen || isAnimating) return;
+    setIsAnimating(true);
+    timeoutRef.current = window.setTimeout(() => {
+      setIsOpen(true);
+      setIsAnimating(false);
+    }, duration);
+  }, [isOpen, isAnimating, duration]);
 
-      if (nextState === MenuState.OPEN) {
-        setMenuState(MenuState.OPENING);
-        timeoutRef.current = window.setTimeout(() => {
-          setMenuState(MenuState.OPEN);
-        }, duration);
-      } else if (nextState === MenuState.CLOSED) {
-        setMenuState(MenuState.CLOSING);
-        timeoutRef.current = window.setTimeout(() => {
-          setMenuState(MenuState.CLOSED);
-        }, duration);
-      } else {
-        setMenuState(nextState);
-      }
-    },
-    [duration]
-  );
+  const handleClose = useCallback(() => {
+    if (!isOpen || isAnimating) return;
+    setIsAnimating(true);
+    timeoutRef.current = window.setTimeout(() => {
+      setIsOpen(false);
+      setIsAnimating(false);
+    }, duration);
+  }, [isOpen, isAnimating, duration]);
 
-  const handleOpen = useCallback(
-    () => setMenuStateWithAnimation(MenuState.OPEN),
-    [setMenuStateWithAnimation]
-  );
-  const handleClose = useCallback(
-    () => setMenuStateWithAnimation(MenuState.CLOSED),
-    [setMenuStateWithAnimation]
-  );
-
+  // TODO: fix this function
   const getMenuAnimationClass = useCallback(() => {
     const baseStyles =
-      "w-full px-6 md:px-12 pt-10 bg-black opacity-90 bg-menu-gradient z-50 transition-all duration-500 ease-out";
+      "w-full bg-black opacity-90 bg-menu-gradient transition-all duration-500 ease-out";
+
     if (screenWidth < EBreakpoints.lg) {
-      switch (menuState) {
-        case MenuState.OPENING:
-        case MenuState.CLOSING:
-          return `${baseStyles} transform -translate-y-full`;
-        case MenuState.OPEN:
-          return `${baseStyles} transform translate-y-0`;
-        default:
-          return "";
-      }
+      return `${baseStyles} transform ${
+        isOpen && isAnimating ? "translate-y-0" : "-translate-y-full"
+      }`;
     } else {
-      if (menuState === MenuState.OPENING || isOpen) return baseStyles;
-
-      if (menuState === MenuState.CLOSING)
-        return "w-[164px] opacity-90 px-0 z-50 transition-all duration-500 ease-out";
-
-      return "w-[164px]";
+      if (isOpen && isAnimating)
+        return `${baseStyles} transform translate-x-full`;
+      if (isOpen || isAnimating) return `${baseStyles}`;
+      return "transform translate-x-0 px-0 transition-all duration-500 ease-out";
     }
-  }, [menuState, screenWidth, isOpen]);
+  }, [isOpen, isAnimating, screenWidth]);
 
   useEffect(() => {
     return () => {
@@ -71,9 +51,8 @@ const useMenuAnimation = (duration = 500) => {
   }, []);
 
   return {
-    menuState,
     isOpen,
-    isNotClosed,
+    isAnimating,
     showMenu,
     handleOpen,
     handleClose,

@@ -12,6 +12,7 @@ const useMenuAnimation = (duration = 500) => {
   const handleOpen = useCallback(() => {
     if (isOpen || isAnimating) return;
     setIsAnimating(true);
+
     timeoutRef.current = window.setTimeout(() => {
       setIsOpen(true);
       setIsAnimating(false);
@@ -20,29 +21,13 @@ const useMenuAnimation = (duration = 500) => {
 
   const handleClose = useCallback(() => {
     if (!isOpen || isAnimating) return;
+    
     setIsAnimating(true);
     timeoutRef.current = window.setTimeout(() => {
       setIsOpen(false);
       setIsAnimating(false);
     }, duration);
   }, [isOpen, isAnimating, duration]);
-
-  // TODO: fix this function
-  const getMenuAnimationClass = useCallback(() => {
-    const baseStyles =
-      "w-full bg-black opacity-90 bg-menu-gradient transition-all duration-500 ease-out";
-
-    if (screenWidth < EBreakpoints.lg) {
-      return `${baseStyles} transform ${
-        isOpen && isAnimating ? "translate-y-0" : "-translate-y-full"
-      }`;
-    } else {
-      if (isOpen && isAnimating)
-        return `${baseStyles} transform translate-x-full`;
-      if (isOpen || isAnimating) return `${baseStyles}`;
-      return "transform translate-x-0 px-0 transition-all duration-500 ease-out";
-    }
-  }, [isOpen, isAnimating, screenWidth]);
 
   useEffect(() => {
     return () => {
@@ -56,7 +41,6 @@ const useMenuAnimation = (duration = 500) => {
     showMenu,
     handleOpen,
     handleClose,
-    getMenuAnimationClass,
   };
 };
 

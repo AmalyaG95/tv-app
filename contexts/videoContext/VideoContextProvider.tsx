@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, useMemo } from "react";
 
 import { VideoContext, VideoSate } from "./VideoContext";
 
@@ -12,8 +12,14 @@ export type VideoContextProviderProps = {
 const VideoContextProvider = ({
   data,
   children,
-}: VideoContextProviderProps) => (
-  <VideoContext.Provider value={data}>{children}</VideoContext.Provider>
-);
+}: VideoContextProviderProps) => {
+  const contextValue = useMemo(() => data, [data]);
+
+  return (
+    <VideoContext.Provider value={contextValue}>
+      {children}
+    </VideoContext.Provider>
+  );
+};
 
 export default VideoContextProvider;

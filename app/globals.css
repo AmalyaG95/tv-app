@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* works unexpectedly */
-.swiper-wrapper {
-  /* overflow: auto; */
+.swiper {
+  overflow: auto !important;
 }
 
 /* TODO: for Firefox */
 ::-webkit-scrollbar {
   display: none;
 }
+

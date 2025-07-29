@@ -1,0 +1,1 @@
+export const BUTTONS = ["LANGUAGE", "GET HELP", "EXIT"];

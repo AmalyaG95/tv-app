@@ -29,12 +29,10 @@ const MovieCard = (props: TMovie) => {
       featuredMovie: props,
     }));
 
-    if (props.Id !== featuredMovie?.Id) {
-      setIsVideoPlaying(false);
-      setTimeout(() => {
-        setIsVideoPlaying(true);
-      }, 2000);
-    }
+    setIsVideoPlaying(false);
+    setTimeout(() => {
+      setIsVideoPlaying(true);
+    }, 2000);
   };
 
   return (

@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 import { TLabelWithIcon } from "@/constants/MainMenu.constant";
 import Image from "next/image";
 
@@ -26,4 +28,4 @@ const LabelWithIcon = ({
   </span>
 );
 
-export default LabelWithIcon;
+export default memo(LabelWithIcon);

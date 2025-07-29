@@ -5,7 +5,7 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 
 import useGlobalContext from "@/hooks/useGlobalContext";
-import MainFeaturedVideo from "./MainFeaturedVideo";
+import MainFeaturedVideo from "../MainFeaturedVideo/MainFeaturedVideo";
 import { VideoContextProvider } from "@/contexts/videoContext";
 import useGetItemFromStorage from "@/hooks/useGetItemFromStorage";
 
@@ -21,8 +21,8 @@ const LandingPage = () => {
 
   return (
     <VideoContextProvider data={{ isVideoPlaying, setIsVideoPlaying }}>
-      {featuredMovie && <MainFeaturedVideo {...featuredMovie} />}
-      {trendingMovies && <TrendingNow trendingMovies={trendingMovies} />}
+      {!!featuredMovie && <MainFeaturedVideo />}
+      {!!trendingMovies && <TrendingNow trendingMovies={trendingMovies} />}
     </VideoContextProvider>
   );
 };

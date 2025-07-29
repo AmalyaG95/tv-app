@@ -13,6 +13,13 @@ export enum ERole {
   USER_INFO = "USER_INFO",
 }
 
+export enum MenuState {
+  CLOSED = "closed",
+  OPENING = "opening",
+  OPEN = "open",
+  CLOSING = "closing",
+}
+
 export type TLabelWithIcon = {
   url?: string;
   name: string;

@@ -30,7 +30,7 @@ const ClientLayout = ({
         },
       }}
     >
-      <div className="flex w-full h-full">
+      <div className="flex w-full min-h-screen">
         <MainMenu />
         {children}
       </div>

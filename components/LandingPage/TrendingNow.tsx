@@ -1,8 +1,11 @@
 "use client";
 
-import MovieCard from "@/common/MovieCard";
-import Slider from "@/common/Slider";
+import dynamic from "next/dynamic";
+
+import { MovieCard } from "@/common";
 import useScreenSize, { EBreakpoints } from "@/hooks/useScreenSize";
+
+const Slider = dynamic(() => import("@/common/Slider/Slider"), { ssr: false });
 
 type TrandingNowProps = {
   trendingMovies: TMovie[];

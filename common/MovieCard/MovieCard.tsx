@@ -3,12 +3,13 @@ import useGlobalContext from "@/hooks/useGlobalContext";
 import useVideoContext from "@/hooks/useVideoContext";
 import sortByDate from "@/utils/sortByDate";
 import Image from "next/image";
+import { memo } from "react";
 
 const MovieCard = (props: TMovie) => {
-  const { CoverImage } = props;
+  const { Title, CoverImage } = props;
   const { setIsVideoPlaying } = useVideoContext();
   const {
-    globalState: { trendingMovies, featuredMovie },
+    globalState: { trendingMovies },
     setGlobalState,
   } = useGlobalContext();
 
@@ -37,9 +38,9 @@ const MovieCard = (props: TMovie) => {
 
   return (
     <button onClick={handleSetFeaturedMovie}>
-      <Image width={200} height={296} alt="" src={CoverImage} />
+      <Image width={200} height={296} alt={Title} src={CoverImage} />
     </button>
   );
 };
 
-export default MovieCard;
+export default memo(MovieCard);

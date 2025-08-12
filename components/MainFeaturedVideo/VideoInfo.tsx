@@ -1,5 +1,5 @@
 import Image from "next/image";
-import LabelWithIcon from "@/common/LabelWithIcon";
+import { LabelWithIcon } from "@/common";
 import { play } from "@/public/assets/icons";
 import useGlobalContext from "@/hooks/useGlobalContext";
 import convertMinsToHoursMins from "@/utils/convertMinsToHoursMins";

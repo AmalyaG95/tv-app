@@ -35,7 +35,7 @@ const config: Config = {
         "btn-gradient": "linear-gradient(159.08deg, #2727f5 0%, #001671 100%)",
       },
       transitionProperty: {
-        'max-width': 'max-width',
+        "max-width": "max-width",
       },
     },
   },

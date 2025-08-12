@@ -2,14 +2,11 @@
 
 import { useState } from "react";
 
-import dynamic from "next/dynamic";
-
 import useGlobalContext from "@/hooks/useGlobalContext";
 import MainFeaturedVideo from "../MainFeaturedVideo/MainFeaturedVideo";
 import { VideoContextProvider } from "@/contexts/videoContext";
 import useGetItemFromStorage from "@/hooks/useGetItemFromStorage";
-
-const TrendingNow = dynamic(() => import("./TrendingNow"));
+import TrendingNow from "./TrendingNow";
 
 const LandingPage = () => {
   const {

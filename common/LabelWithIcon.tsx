@@ -1,7 +1,7 @@
 import { memo } from "react";
 
-import { TLabelWithIcon } from "@/constants/MainMenu.constant";
 import Image from "next/image";
+import { TLabelWithIcon } from "@/constants/MainMenu.constant";
 
 type TLabelWithIconProps = TLabelWithIcon & {
   className?: string;

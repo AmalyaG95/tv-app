@@ -1,6 +1,6 @@
 "use client";
 
-import { ComponentProps } from "react";
+import { ComponentProps, memo } from "react";
 
 import { A11y, Autoplay, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide, SwiperSlideProps } from "swiper/react";
@@ -68,4 +68,4 @@ const Slider = ({
   );
 };
 
-export default Slider;
+export default memo(Slider);

@@ -1,9 +1,10 @@
 "use client";
 
-import LabelWithIcon from "@/common/LabelWithIcon";
+import { LabelWithIcon } from "@/common";
 import { NAV_ITEMS } from "@/constants/MainMenu.constant";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { memo } from "react";
 
 type TNavbarProps = {
   isOpen: boolean;
@@ -15,7 +16,9 @@ const Navbar = ({ isOpen, handleOpenMenu }: TNavbarProps) => {
 
   return (
     <nav
-      className={`flex flex-col ml-3 xs:ml-0 ${isOpen ? "" : "xs:max-w-[68px]"}`}
+      className={`flex flex-col ml-3 xs:ml-0 ${
+        isOpen ? "" : "xs:max-w-[68px]"
+      }`}
     >
       {NAV_ITEMS.map((item) => {
         const { name, url } = item;
@@ -48,4 +51,4 @@ const Navbar = ({ isOpen, handleOpenMenu }: TNavbarProps) => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);

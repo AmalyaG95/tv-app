@@ -5,6 +5,7 @@ import { ComponentProps, memo } from "react";
 import { A11y, Autoplay, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide, SwiperSlideProps } from "swiper/react";
 
+import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/effect-fade";
 

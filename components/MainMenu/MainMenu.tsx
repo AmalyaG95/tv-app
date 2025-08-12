@@ -5,8 +5,7 @@ import { memo } from "react";
 import Image from "next/image";
 
 import { menu } from "@/public/assets/icons";
-import { Header, Navbar } from "@/components/MainMenu";
-import ActionButtons from "./ActionButtons";
+import { Header, Navbar, ActionButtons } from "@/components/MainMenu";
 import useCloseElement from "@/hooks/useCloseElement";
 import useMenuAnimation from "@/hooks/useMenuAnimation";
 import useScreenSize, { EBreakpoints } from "@/hooks/useScreenSize";

@@ -3,7 +3,7 @@
 import { ReactNode } from "react";
 
 import { GlobalContextProvider } from "@/contexts/globalContext";
-import { MainMenu } from "./MainMenu";
+import { MainMenu } from "@/components";
 import { USER } from "@/constants/MainMenu.constant";
 import { getItemFromStorage } from "@/utils";
 
